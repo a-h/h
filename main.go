@@ -104,6 +104,12 @@ var contents = []help{
 		desc:     "Ctrl-f for full screen down, Ctrl-u for up",
 	},
 	{
+		program:  "vim: NERDCommenter",
+		command:  "toggle comments",
+		shortcut: "\\c <space>",
+		desc:     "\\ is the default <leader> key",
+	},
+	{
 		program:  "tmux",
 		command:  "new window",
 		shortcut: "ctrl-b c",
