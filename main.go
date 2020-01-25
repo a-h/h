@@ -110,6 +110,24 @@ var contents = []help{
 		desc:     "\\ is the default <leader> key",
 	},
 	{
+		program:  "vim: surround",
+		command:  "surround with",
+		shortcut: "ys<object><text>",
+		desc:     "surround word with quotes: ysiw\", surround to end of line with quotes: ys$\"",
+	},
+	{
+		program:  "vim: surround",
+		command:  "change surrounding",
+		shortcut: "cs<previous><new>",
+		desc:     "switch from double to single quotes: cs\"'",
+	},
+	{
+		program:  "vim: surround",
+		command:  "delete surrounding",
+		shortcut: "ds<surround>",
+		desc:     "delete quotes from word: ds\"",
+	},
+	{
 		program:  "tmux",
 		command:  "new window",
 		shortcut: "ctrl-b c",
