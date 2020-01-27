@@ -128,6 +128,24 @@ var contents = []help{
 		desc:     "delete quotes from word: ds\"",
 	},
 	{
+		program:  "vim",
+		command:  "new tab",
+		shortcut: ":tabedit <filename>",
+		desc:     "next tab: gt, previous tab: gT, go to tab 1: 1gt",
+	},
+	{
+		program:  "vim",
+		command:  "next tab",
+		shortcut: "gt",
+		desc:     "new tab: :tabedit <filename>, previous tab: gT, go to tab 1: 1gt",
+	},
+	{
+		program:  "vim",
+		command:  "previous tab",
+		shortcut: "gT",
+		desc:     "new tab: :tabedit filename, next tab: gt, go to tab 1: 1gt",
+	},
+	{
 		program:  "tmux",
 		command:  "new window",
 		shortcut: "ctrl-b c",
