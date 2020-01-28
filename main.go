@@ -43,13 +43,13 @@ var contents = []help{
 		program:  "vim",
 		command:  "copy / yank",
 		shortcut: "y",
-		desc:     "paste with p",
+		desc:     "paste with p, copy to system clipboard: \"+y",
 	},
 	{
 		program:  "vim",
 		command:  "paste",
 		shortcut: "p",
-		desc:     "copy with y (yank)",
+		desc:     "copy with y (yank), copy to system clipboard: \"+y",
 	},
 	{
 		program:  "vim",
@@ -184,13 +184,13 @@ var contents = []help{
 		program:  "tmux",
 		command:  "copy",
 		shortcut: "ctrl-b [",
-		desc:     "enter mode: ctrl-b [, use arrow keys, copy: ctrl-space, paste: ctrl-b ]",
+		desc:     "enter mode: ctrl-b [, use arrow keys, start copy: ctrl-space, copy to buffer: ctrl-w, paste: ctrl-b ]",
 	},
 	{
 		program:  "tmux",
 		command:  "paste",
 		shortcut: "ctrl-b ]",
-		desc:     "enter mode: ctrl-b [, use arrow keys, copy: ctrl-space, paste: ctrl-b ]",
+		desc:     "enter mode: ctrl-b [, use arrow keys, start copy: ctrl-space, copy to buffer: ctrl-w, paste: ctrl-b ]",
 	},
 }
 
