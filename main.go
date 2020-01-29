@@ -116,6 +116,12 @@ var contents = []help{
 		desc:     "moves to the previous/next [], {}, ()",
 	},
 	{
+		program:  "vim",
+		command:  "clear search highlight",
+		shortcut: ":noh",
+		desc:     "",
+	},
+	{
 		program:  "vim: NERDCommenter",
 		command:  "toggle comments",
 		shortcut: "\\c <space>",
