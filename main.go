@@ -104,6 +104,18 @@ var contents = []help{
 		desc:     "Ctrl-f for full screen down, Ctrl-u for up",
 	},
 	{
+		program:  "vim",
+		command:  "next bracket",
+		shortcut: "%",
+		desc:     "moves to the previous/next [], {}, ()",
+	},
+	{
+		program:  "vim",
+		command:  "previous bracket",
+		shortcut: "%",
+		desc:     "moves to the previous/next [], {}, ()",
+	},
+	{
 		program:  "vim: NERDCommenter",
 		command:  "toggle comments",
 		shortcut: "\\c <space>",
