@@ -43,13 +43,13 @@ var contents = []help{
 		program:  "vim",
 		command:  "copy / yank",
 		shortcut: "y",
-		desc:     "paste with p, copy to system clipboard: \"+y",
+		desc:     "paste: p, copy to system clipboard: \"+y, copy file: :%y+",
 	},
 	{
 		program:  "vim",
 		command:  "paste",
 		shortcut: "p",
-		desc:     "copy with y (yank), copy to system clipboard: \"+y",
+		desc:     "copy: y (yank), copy to system clipboard: \"+y, copy file :%y+",
 	},
 	{
 		program:  "vim",
@@ -162,6 +162,12 @@ var contents = []help{
 		command:  "previous tab",
 		shortcut: "gT",
 		desc:     "new tab: :tabedit filename, next tab: gt, go to tab 1: 1gt",
+	},
+	{
+		program:  "vim test",
+		command:  "run test",
+		shortcut: "<leader>, t, Ctrl-S or :TestSuite",
+		desc:     "The leader key is \\ by default, press enter to exit the test results.",
 	},
 	{
 		program:  "tmux",
