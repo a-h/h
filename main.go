@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"sort"
 	"strings"
@@ -38,6 +39,30 @@ var contents = []help{
 		command:  "focus window right",
 		shortcut: "ctrl-w l",
 		desc:     "focus window right: ctrl-w h",
+	},
+	{
+		program:  "vim",
+		command:  "delete previous line",
+		shortcut: ":-d",
+		desc:     "delete next line: :+d, delete to line num: d<line_num>G",
+	},
+	{
+		program:  "vim",
+		command:  "delete word",
+		shortcut: "dw",
+		desc:     "delete inside word: diw, delete to char: dt<char>",
+	},
+	{
+		program:  "vim",
+		command:  "delete next line",
+		shortcut: ":+d",
+		desc:     ":-d to delete previous line, delete to line num: d<line_num>G",
+	},
+	{
+		program:  "vim",
+		command:  "delete to line",
+		shortcut: "d<line_num>G",
+		desc:     "dd: delete current line, :-d to delete previous line",
 	},
 	{
 		program:  "vim",
@@ -296,14 +321,25 @@ type helpScore struct {
 	index, score int
 }
 
+var debug = os.Getenv("H_DEBUG") == "true"
+
+func logf(format string, a ...interface{}) {
+	if debug {
+		log.Printf(format, a...)
+	}
+}
+
 func main() {
 	q := strings.Join(os.Args[1:], " ")
+	logf("query: %v", q)
 
 	// Score the results.
 	scores := initialMatcher(q, contents)
+	logf("completed initial matcher")
 	for i, s := range wordMatcher(q, contents) {
 		scores[i] += s
 	}
+	logf("completed word matcher")
 
 	// Filter and collect the help.
 	var helpScores []helpScore
@@ -317,6 +353,7 @@ func main() {
 	sort.Slice(helpScores, func(i, j int) bool {
 		return helpScores[i].score > helpScores[j].score
 	})
+	logf("sorted results")
 
 	// Output.
 	if len(helpScores) == 0 {
