@@ -18,6 +18,36 @@ type help struct {
 var contents = []help{
 	{
 		program:  "vim",
+		command:  "advance to end of current/next word",
+		shortcut: "e",
+		desc:     "start of next word: w, start of previous word: B, end of previous word: b",
+	},
+	{
+		program:  "vim",
+		command:  "advance to start of next word",
+		shortcut: "w",
+		desc:     "start of previous word: B, end of previous word: b",
+	},
+	{
+		program:  "vim",
+		command:  "home",
+		shortcut: "0",
+		desc:     "end: $",
+	},
+	{
+		program:  "vim",
+		command:  "end",
+		shortcut: "$",
+		desc:     "home: 0",
+	},
+	{
+		program:  "vim",
+		command:  "query history of past commands",
+		shortcut: "q:",
+		desc:     "a list of previous commands, :q to exit",
+	},
+	{
+		program:  "vim",
 		command:  "horizontal split",
 		shortcut: ":sp",
 		desc:     "move windows: ctrl-w, vertical split: vsp",
@@ -63,6 +93,18 @@ var contents = []help{
 		command:  "delete to line",
 		shortcut: "d<line_num>G",
 		desc:     "dd: delete current line, :-d to delete previous line",
+	},
+	{
+		program:  "vim",
+		command:  "change in word",
+		shortcut: "ciw",
+		desc:     "ciw: 'w█rd' -> '', cw: 'w█rd' -> 'w'",
+	},
+	{
+		program:  "vim",
+		command:  "change word",
+		shortcut: "cw",
+		desc:     "ciw: 'w█rd' -> '', cw: 'w█rd' -> 'w'",
 	},
 	{
 		program:  "vim",
@@ -139,6 +181,18 @@ var contents = []help{
 		command:  "previous bracket",
 		shortcut: "%",
 		desc:     "moves to the previous/next [], {}, ()",
+	},
+	{
+		program:  "vim",
+		command:  "search (find)",
+		shortcut: "/query",
+		desc:     "next: n, move to: enter",
+	},
+	{
+		program:  "vim",
+		command:  "regex find/replace execute command",
+		shortcut: ":g/regex/<cmd>",
+		desc:     "delete lines that contain a or b: :/g/(a|b)/dd",
 	},
 	{
 		program:  "vim",
@@ -291,6 +345,20 @@ func wordMatcher(q string, h []help) (op []int) {
 	return
 }
 
+func shortcutMatcher(q string, h []help) (op []int) {
+	op = make([]int, len(h))
+	if q == "" {
+		return
+	}
+
+	for i, hh := range h {
+		if hh.shortcut == q {
+			op[i]++
+		}
+	}
+	return
+}
+
 func initialMatcher(q string, h []help) (op []int) {
 	op = make([]int, len(h))
 	for i, hh := range h {
@@ -340,6 +408,10 @@ func main() {
 		scores[i] += s
 	}
 	logf("completed word matcher")
+	for i, s := range shortcutMatcher(q, contents) {
+		scores[i] += s
+	}
+	logf("completed shortcut matcher")
 
 	// Filter and collect the help.
 	var helpScores []helpScore

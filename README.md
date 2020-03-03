@@ -15,6 +15,8 @@ tmux: copy - ctrl-b [ (enter mode: ctrl-b [, use arrow keys, copy: ctrl-space, p
 
 ### vim usage
 
+Within vim you can enter an exclamation mark to run a command. So, you can use the following command to look up `copy`:
+
 ```
 :!h copy
 ```
@@ -22,5 +24,5 @@ tmux: copy - ctrl-b [ (enter mode: ctrl-b [, use arrow keys, copy: ctrl-space, p
 ## Installation / update
 
 ```
-go install
+go install github.com/a-h/h
 ```
