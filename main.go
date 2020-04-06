@@ -61,13 +61,13 @@ var contents = []help{
 	{
 		program:  "vim",
 		command:  "focus window left",
-		shortcut: "ctrl-w h",
+		shortcut: "ctrl-w h / ctrl-w <-",
 		desc:     "focus window right: ctrl-w l",
 	},
 	{
 		program:  "vim",
 		command:  "focus window right",
-		shortcut: "ctrl-w l",
+		shortcut: "ctrl-w l / ctrl-w ->",
 		desc:     "focus window right: ctrl-w h",
 	},
 	{
@@ -117,6 +117,12 @@ var contents = []help{
 		command:  "paste",
 		shortcut: "p",
 		desc:     "copy: y (yank), copy to system clipboard: \"+y, copy file :%y+",
+	},
+	{
+		program:  "vim",
+		command:  "copy lines / yank lines",
+		shortcut: ":<from_line>,<to_line>y",
+		desc:     "paste: p, copy to system clipboard: :<from_line>,<to_line>y+",
 	},
 	{
 		program:  "vim",
@@ -243,10 +249,22 @@ var contents = []help{
 		desc:     "new tab: :tabedit filename, next tab: gt, go to tab 1: 1gt",
 	},
 	{
-		program:  "vim test",
+		program:  "vim",
 		command:  "run test",
 		shortcut: "<leader>, t, Ctrl-S or :TestSuite",
 		desc:     "The leader key is \\ by default, press enter to exit the test results.",
+	},
+	{
+		program:  "vim",
+		command:  "move line up",
+		shortcut: ":m -1",
+		desc:     "move line down: :m +1",
+	},
+	{
+		program:  "vim",
+		command:  "move line down",
+		shortcut: ":m +1",
+		desc:     "move line up: :m -1",
 	},
 	{
 		program:  "tmux",
