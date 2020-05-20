@@ -313,12 +313,18 @@ var contents = []help{
 		shortcut: "ctrl-b ]",
 		desc:     "enter mode: ctrl-b [, use arrow keys, start copy: ctrl-space, copy to buffer: ctrl-w, paste: ctrl-b ]",
 	},
+	{
+		program:  "find",
+		command:  "find files in subdirectories",
+		shortcut: `find ./ -name "*inesis*" -print`,
+		desc:     "see example",
+	},
 }
 
 var noise = map[string]struct{}{
-	"the": struct{}{},
-	"and": struct{}{},
-	"of":  struct{}{},
+	"the": {},
+	"and": {},
+	"of":  {},
 }
 
 func normaliseWords(s string) (words []string) {
