@@ -267,6 +267,18 @@ var contents = []help{
 		desc:     "move line up: :m -1",
 	},
 	{
+		program:  "vim",
+		command:  "move viewport down",
+		shortcut: "Ctrl-Y",
+		desc:     "move viewport up: Ctrl-E",
+	},
+	{
+		program:  "vim",
+		command:  "move viewport up",
+		shortcut: "Ctrl-E",
+		desc:     "move viewport down: Ctrl-Y",
+	},
+	{
 		program:  "tmux",
 		command:  "new window",
 		shortcut: "ctrl-b c",
