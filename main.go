@@ -279,6 +279,11 @@ var contents = []help{
 		desc:     "move viewport down: Ctrl-Y",
 	},
 	{
+		program:  "vim",
+		command:  "visual multi",
+		shortcut: "ctrl-n",
+	},
+	{
 		program:  "tmux",
 		command:  "new window",
 		shortcut: "ctrl-b c",
